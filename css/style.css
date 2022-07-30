@@ -10,6 +10,12 @@
 body {
     height: 90vh;
     font-family: 'Press Start 2P', cursive;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.loaded {
+    opacity: 1;
 }
 
 .game-content,
@@ -75,7 +81,7 @@ body {
     align-items: center;
     margin: 30% auto;
     padding: 0;
-    width: 768px;
+    width: 528px;
     height: 30%;
     background-color: #fefefe;
     border: 1px solid #888;
@@ -104,7 +110,8 @@ body {
     flex-direction: column;
     border: 2px solid black;
     border-radius: 5px;
-    width: 768px;
+    width: 528px;
+    display: block;
 }
 
 .health-bar {
@@ -120,6 +127,7 @@ body {
 }
 
 .game-content {
+
     gap: 48px;
     margin-bottom: 52px;
 }
@@ -141,6 +149,12 @@ body {
     padding: 8px;
     cursor: pointer;
     border-radius: 12px;
+
+}
+
+.user-choice button:hover {
+    transform: scale(1.2);
+    transition: all .07s ease;
 }
 
 /* Icons */
@@ -160,10 +174,27 @@ body {
 
 .cpu-icon {
     font-size: 72px;
-    transform: rotate(270deg) scaleX(-1);
     margin-left: 20px;
 }
 
 .rotate {
     transform: rotate(90deg);
+}
+
+.cpu-rotate-rock,
+.cpu-rotate-paper {
+    transform: rotate(270deg) scaleX(-1);
+}
+
+.user-scissors {
+    transform: rotate(360deg) scaleX(-1);
+}
+
+/* Hand Slideshow */
+.slideshow .slide {
+    display: none;
+}
+
+.slideshow .slide.active {
+    display: block;
 }

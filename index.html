@@ -32,31 +32,29 @@
 
     <!-- The Game Screen -->
     <div class="game-container">
-        <h2 class="round">Round 1</h2>
+        <h2 class="round">Round </h2>
         <!-- The game content -->
         <div class="game-content">
             <div class="user">
                 <h3 class="game-header">YOU</h3>
-                <ul class="health-bar">
-                    <li><i class="fa-solid fa-heart"></i></li>
-                    <li><i class="fa-solid fa-heart"></i></li>
-                    <li><i class="fa-solid fa-heart"></i></li>
-                    <li><i class="fa-solid fa-heart"></i></li>
-                    <li><i class="fa-solid fa-heart"></i></li>
+                <ul id="user-health" class="health-bar">
                 </ul>
-                <i class="fa-regular fa-hand-back-fist user-icon"></i>
+                <div id="slide-user" class="slideshow">
+                    <i class="fa-regular slide fa-hand-back-fist user-icon"></i>
+                    <i class="fa-regular slide fa-hand user-icon"></i>
+                    <i class="fa-regular slide fa-hand-scissors user-icon user-scissors"></i>
+                </div>
             </div>
-            <h3 class="decider">Win</h2>
+            <h3 class="decider">VS</h2>
                 <div class="cpu">
                     <h3 class="game-header">CPU</h3>
-                    <ul class="health-bar">
-                        <li><i class="fa-solid fa-heart"></i></li>
-                        <li><i class="fa-solid fa-heart"></i></li>
-                        <li><i class="fa-solid fa-heart"></i></li>
-                        <li><i class="fa-solid fa-heart"></i></li>
-                        <li><i class="fa-solid fa-heart"></i></li>
+                    <ul id="cpu-health" class="health-bar">
                     </ul>
-                    <i class="fa-regular fa-hand lrg-icon cpu-icon"></i>
+                    <div id="slide-cpu" class="slideshow">
+                        <i class="fa-regular slide fa-hand-back-fist cpu-icon cpu-rotate-rock"></i>
+                        <i class="fa-regular slide fa-hand-scissors cpu-icon"></i>
+                        <i class="fa-regular slide fa-hand cpu-icon cpu-rotate-paper"></i>
+                    </div>
                 </div>
         </div>
         <!-- User Button Choice -->
