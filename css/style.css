@@ -1,0 +1,95 @@
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Press Start 2P', cursive;
+}
+
+/* The Modal (background) */
+.modal {
+    /* Hidden by default */
+    display: block;
+    /* Stay in place */
+    position: fixed;
+    /* Sit on top */
+    z-index: 1;
+    left: 0;
+    top: 0;
+    /* Full width */
+    width: 100%;
+    /* Full height */
+    height: 100%;
+    /* Fallback color */
+    background-color: rgb(0, 0, 0);
+    /* Black w/ opacity */
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Modal Header and Footer */
+.modal-header,
+.modal-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    padding: 16px 20px;
+    width: 100%;
+    background-color: #5cb85c;
+}
+
+.lrg-icon {
+    font-size: 24px;
+}
+
+/* Modal Body */
+.modal-body {
+    padding: 2px 16px;
+}
+
+.btn-play {
+    font: inherit;
+    padding: 16px 48px;
+    cursor: pointer;
+}
+
+/* Modal Footer */
+.modal-footer {
+    color: #fff;
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30% auto;
+    padding: 0;
+    width: 80%;
+    height: 30%;
+    background-color: #fefefe;
+    border: 1px solid #888;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    animation-name: animatetop;
+    animation-duration: 0.7s;
+}
+
+/* Add Animation */
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
