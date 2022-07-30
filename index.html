@@ -32,12 +32,17 @@
 
     <!-- The Game Screen -->
     <div class="game-container">
-        <h2 class="round">Round </h2>
+        <h2 id="round">Round 1</h2>
         <!-- The game content -->
         <div class="game-content">
             <div class="user">
                 <h3 class="game-header">YOU</h3>
                 <ul id="user-health" class="health-bar">
+                    <li><i class="fa-solid fa-heart"></i></li>
+                    <li><i class="fa-solid fa-heart"></i></li>
+                    <li><i class="fa-solid fa-heart"></i></li>
+                    <li><i class="fa-solid fa-heart"></i></li>
+                    <li><i class="fa-solid fa-heart"></i></li>
                 </ul>
                 <div id="slide-user" class="slideshow">
                     <i class="fa-regular slide fa-hand-back-fist user-icon"></i>
@@ -49,6 +54,11 @@
                 <div class="cpu">
                     <h3 class="game-header">CPU</h3>
                     <ul id="cpu-health" class="health-bar">
+                        <li><i class="fa-solid fa-heart"></i></li>
+                        <li><i class="fa-solid fa-heart"></i></li>
+                        <li><i class="fa-solid fa-heart"></i></li>
+                        <li><i class="fa-solid fa-heart"></i></li>
+                        <li><i class="fa-solid fa-heart"></i></li>
                     </ul>
                     <div id="slide-cpu" class="slideshow">
                         <i class="fa-regular slide fa-hand-back-fist cpu-icon cpu-rotate-rock"></i>
@@ -59,9 +69,11 @@
         </div>
         <!-- User Button Choice -->
         <div class="user-choice">
-            <button class="rock"><i class="fa-regular fa-hand-back-fist xlrg-icon rotate"></i></button>
-            <button class="paper"><i class="fa-regular fa-hand xlrg-icon"></i></button>
-            <button class="scissors"><i class="fa-regular fa-hand-scissors xlrg-icon"></i></button>
+            <button id="rock" class="rock"><i id="rock"
+                    class="fa-regular fa-hand-back-fist xlrg-icon rotate"></i></button>
+            <button id="paper" class="paper"><i id="paper" class="fa-regular fa-hand xlrg-icon"></i></button>
+            <button id="scissors" class="scissors"><i id="scissors"
+                    class="fa-regular fa-hand-scissors xlrg-icon"></i></button>
         </div>
     </div>
     <!-- main.js -->

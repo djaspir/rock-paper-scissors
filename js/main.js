@@ -8,21 +8,27 @@ const gameContainer = document.querySelector(".game-container")
 const slideShowUser = document.querySelectorAll("#slide-user")
 // CPU Slide Show
 const slideShowCpu = document.querySelectorAll("#slide-cpu")
-// Get User ul
-const userHealthItems = document.querySelector("#user-health")
-// Get Cpu ul
-const cpuHealthItems = document.querySelector("#cpu-health")
+// Get User li
+const userHealthItems = document.getElementById("user-health").getElementsByTagName("li")
+console.log(userHealthItems)
+// Get Cpu li
+const cpuHealthItems = document.querySelectorAll("#cpu-health li")
 // Get Round h3
-const roundLabel = document.querySelector(".round");
+const roundLabel = document.getElementById("round")
 // Get decider h3
 const deciderLabel = document.querySelector(".decider")
-
+// Get button choice
+const btnChoice = document.querySelectorAll(".user-choice button")
 // Set User Health
 let userHealth = 5;
 // Set Cpu Health
 let cpuHealth = 5;
 // Set Game Round
 let round = 1;
+// Computer Choice Array
+let computerHandArray = ["rock", "paper", "scissors"]
+
+
 // Transition Effect on Page Refresh
 document.body.onload = () => {
     document.body.classList.add('loaded')
@@ -45,34 +51,81 @@ const initSlideShow = (slideshow) => {
         slides[index].classList.add('active');
     }, time);
 }
-// Set User Health
-const setUserHealth = () => {
-    for (let i = 0; i < userHealth; i++) {
-        userHealthItems.innerHTML += `<i class="fa-solid fa-heart"></i>`;
-    }
-}
-// Set CPU Health
-const setCpuHealth = () => {
-    for (let i = 0; i < cpuHealth; i++) {
-        cpuHealthItems.innerHTML += `<i class="fa-solid fa-heart"></i>`;
-    }
-}
+
+
 // Get Random Number 1 - 3
 const getRandomNumber = () => Math.floor(Math.random() * 3);
+// Get choice from computerHandArray
+const getComputerChoice = () => computerHandArray[getRandomNumber()];
 // Set Round
 const setRound = () => roundLabel.textContent = `Round ${round}`
-// Set Decider
-const setDecider = () => deciderLabel.textContent = "WIN"
+// Remove li health
+let last = userHealthItems[userHealthItems.length - 1];
 
 
-setDecider()
-setRound()
-setUserHealth()
-setCpuHealth()
+// Remove Health
+const removeLi = () => {
+    let last = userHealthItems[userHealthItems.length - 1];
+    last.parentNode.removeChild(last);
+}
+
+// Select Hand Choice
+const handSelect = (e) => {
+    playSingleRound(e.target.id, getComputerChoice());
+}
+
+btnChoice.forEach(btn => btn.addEventListener('click', handSelect))
+
+// Scoreboard functionality
+const scoreBoard = (playerHand, computerHand, decider) => {
+    round++;
+    switch (decider) {
+        case "Win":
+            console.log("you win")
+            break;
+        case "Lose":
+            console.log("you lose")
+            break;
+    }
+    roundLabel.textContent = `Round ${round}`
+}
 
 // Run Slide Show
 slideShowUser.forEach(initSlideShow);
 slideShowCpu.forEach(initSlideShow);
+
+// playSingleRound Function
+const playSingleRound = (playerSelection, computerSelection) => {
+    // check player hand is equal to computer then return draw dont add to scoreboard
+    if (playerSelection === computerSelection) {
+        scoreBoard(playerSelection, computerSelection, "Draw");
+    } // check if player hand is rock
+    else if (playerSelection === "rock") {
+
+        if (computerSelection === "paper") {
+            scoreBoard(playerSelection, computerSelection, "Lose");
+        } else {
+            scoreBoard(playerSelection, computerSelection, "Win");
+        } //else if check player hand is paper
+    } else if (playerSelection === "paper") {
+
+        if (computerSelection === "scissors") {
+            scoreBoard(playerSelection, computerSelection, "Lose");
+        } else {
+            scoreBoard(playerSelection, computerSelection, "Win");
+        } // else then you choose scissors
+    } else {
+        if (computerSelection === "rock") {
+            scoreBoard(playerSelection, computerSelection, "Lose");
+        }
+        else {
+            scoreBoard(playerSelection, computerSelection, "Win");
+        }
+    }
+}
+
+
+
 
 
 

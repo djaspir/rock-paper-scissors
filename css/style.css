@@ -121,15 +121,14 @@ body {
     margin-bottom: 32px;
 }
 
-.round {
+#round {
     text-align: center;
     margin-bottom: 32px;
 }
 
 .game-content {
-
     gap: 48px;
-    margin-bottom: 52px;
+    margin-bottom: 32px;
 }
 
 .game-header {
@@ -195,6 +194,14 @@ body {
     display: none;
 }
 
+.slideshow {
+    transition: opacity 1s ease;
+}
+
 .slideshow .slide.active {
     display: block;
+}
+
+.hidden {
+    display: none;
 }
