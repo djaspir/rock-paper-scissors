@@ -8,13 +8,32 @@
 }
 
 body {
+    height: 90vh;
     font-family: 'Press Start 2P', cursive;
+}
+
+.game-content,
+.user-choice,
+.modal-header,
+.modal-footer,
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-header,
+.modal-footer {
+    gap: 24px;
+    padding: 16px 20px;
+    width: 100%;
+    background-color: #5cb85c;
 }
 
 /* The Modal (background) */
 .modal {
     /* Hidden by default */
-    display: block;
+    display: none;
     /* Stay in place */
     position: fixed;
     /* Sit on top */
@@ -29,22 +48,6 @@ body {
     background-color: rgb(0, 0, 0);
     /* Black w/ opacity */
     background-color: rgba(0, 0, 0, 0.4);
-}
-
-/* Modal Header and Footer */
-.modal-header,
-.modal-footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 24px;
-    padding: 16px 20px;
-    width: 100%;
-    background-color: #5cb85c;
-}
-
-.lrg-icon {
-    font-size: 24px;
 }
 
 /* Modal Body */
@@ -72,7 +75,7 @@ body {
     align-items: center;
     margin: 30% auto;
     padding: 0;
-    width: 80%;
+    width: 768px;
     height: 30%;
     background-color: #fefefe;
     border: 1px solid #888;
@@ -92,4 +95,75 @@ body {
         top: 0;
         opacity: 1
     }
+}
+
+/* Game Content Div */
+.game-container {
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 768px;
+}
+
+.health-bar {
+    list-style-type: none;
+    display: flex;
+    gap: 8px;
+    margin-bottom: 32px;
+}
+
+.round {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.game-content {
+    gap: 48px;
+    margin-bottom: 52px;
+}
+
+.game-header {
+    margin-bottom: 4px;
+}
+
+.decider {
+    margin-top: 48px;
+}
+
+/* User Choice Buttons */
+.user-choice {
+    gap: 24px;
+}
+
+.user-choice button {
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+/* Icons */
+.lrg-icon {
+    font-size: 24px;
+}
+
+.xlrg-icon {
+    font-size: 48px;
+}
+
+.user-icon {
+    font-size: 72px;
+    transform: rotate(90deg);
+    margin-left: 20px;
+}
+
+.cpu-icon {
+    font-size: 72px;
+    transform: rotate(270deg) scaleX(-1);
+    margin-left: 20px;
+}
+
+.rotate {
+    transform: rotate(90deg);
 }

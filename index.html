@@ -15,7 +15,6 @@
 <body>
     <!-- The Modal -->
     <div id="myModal" class="modal">
-
         <!-- Modal content -->
         <div class="modal-content">
             <div class="modal-header">
@@ -29,7 +28,43 @@
                 <i class="fa-brands fa-github lrg-icon"></i>
             </div>
         </div>
+    </div>
 
+    <!-- The Game Screen -->
+    <div class="game-container">
+        <h2 class="round">Round 1</h2>
+        <!-- The game content -->
+        <div class="game-content">
+            <div class="user">
+                <h3 class="game-header">YOU</h3>
+                <ul class="health-bar">
+                    <li><i class="fa-solid fa-heart"></i></li>
+                    <li><i class="fa-solid fa-heart"></i></li>
+                    <li><i class="fa-solid fa-heart"></i></li>
+                    <li><i class="fa-solid fa-heart"></i></li>
+                    <li><i class="fa-solid fa-heart"></i></li>
+                </ul>
+                <i class="fa-regular fa-hand-back-fist user-icon"></i>
+            </div>
+            <h3 class="decider">Win</h2>
+                <div class="cpu">
+                    <h3 class="game-header">CPU</h3>
+                    <ul class="health-bar">
+                        <li><i class="fa-solid fa-heart"></i></li>
+                        <li><i class="fa-solid fa-heart"></i></li>
+                        <li><i class="fa-solid fa-heart"></i></li>
+                        <li><i class="fa-solid fa-heart"></i></li>
+                        <li><i class="fa-solid fa-heart"></i></li>
+                    </ul>
+                    <i class="fa-regular fa-hand lrg-icon cpu-icon"></i>
+                </div>
+        </div>
+        <!-- User Button Choice -->
+        <div class="user-choice">
+            <button class="rock"><i class="fa-regular fa-hand-back-fist xlrg-icon rotate"></i></button>
+            <button class="paper"><i class="fa-regular fa-hand xlrg-icon"></i></button>
+            <button class="scissors"><i class="fa-regular fa-hand-scissors xlrg-icon"></i></button>
+        </div>
     </div>
     <!-- main.js -->
     <script src="./js/main.js"></script>
