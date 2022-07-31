@@ -10,9 +10,12 @@ const slideShowUser = document.querySelectorAll("#slide-user")
 const slideShowCpu = document.querySelectorAll("#slide-cpu")
 // Get User li
 const userHealthItems = document.getElementById("user-health").getElementsByTagName("li")
-console.log(userHealthItems)
 // Get Cpu li
-const cpuHealthItems = document.querySelectorAll("#cpu-health li")
+const cpuHealthItems = document.getElementById("cpu-health").getElementsByTagName("li")
+// Get User ul
+const divUserHealth = document.getElementById("slide-user")
+// Get Cpu ul
+const divCpuHealth = document.getElementById("slide-cpu")
 // Get Round h3
 const roundLabel = document.getElementById("round")
 // Get decider h3
@@ -37,6 +40,7 @@ document.body.onload = () => {
 btn.onclick = function () {
     modal.style.display = "none";
     gameContainer.style.display = "block";
+    window.location.reload()
 }
 // Slide Show Function
 const initSlideShow = (slideshow) => {
@@ -64,8 +68,8 @@ let last = userHealthItems[userHealthItems.length - 1];
 
 
 // Remove Health
-const removeLi = () => {
-    let last = userHealthItems[userHealthItems.length - 1];
+const removeLi = (health) => {
+    let last = health[health.length - 1];
     last.parentNode.removeChild(last);
 }
 
@@ -78,16 +82,35 @@ btnChoice.forEach(btn => btn.addEventListener('click', handSelect))
 
 // Scoreboard functionality
 const scoreBoard = (playerHand, computerHand, decider) => {
+    let time = 2000;
     round++;
+    console.log(playerHand)
     switch (decider) {
         case "Win":
-            console.log("you win")
+            removeLi(cpuHealthItems);
             break;
         case "Lose":
-            console.log("you lose")
+            removeLi(userHealthItems);
+            break;
+        case "Draw":
+            console.log("draw");
             break;
     }
     roundLabel.textContent = `Round ${round}`
+
+    // TODO SHOW USER HAND
+    divUserHealth.classList.add("hidden")
+    divCpuHealth.classList.add("hidden")
+
+    // Show Hand
+    showHandUser(playerHand)
+    showHandCpu(computerHand)
+
+    if (userHealthItems.length === 0) {
+        declareWinner("LOSE")
+    } else if (cpuHealthItems.length === 0) {
+        declareWinner("WIN")
+    }
 }
 
 // Run Slide Show
@@ -101,7 +124,6 @@ const playSingleRound = (playerSelection, computerSelection) => {
         scoreBoard(playerSelection, computerSelection, "Draw");
     } // check if player hand is rock
     else if (playerSelection === "rock") {
-
         if (computerSelection === "paper") {
             scoreBoard(playerSelection, computerSelection, "Lose");
         } else {
@@ -123,6 +145,44 @@ const playSingleRound = (playerSelection, computerSelection) => {
         }
     }
 }
+//  get user choice
+const userIcons = document.getElementById("slide-user").getElementsByTagName("i")
+
+const cpuIcons = document.getElementById("slide-cpu").getElementsByTagName("i")
+const showUserHand = document.getElementById("show-user-hand")
+const showCpuHand = document.getElementById("show-cpu-hand")
+// Show Hand
+const showHandUser = (playerHand) => {
+    if (playerHand === "rock") {
+        showUserHand.innerHTML = userIcons[0].outerHTML
+    } else if (playerHand === "paper") {
+        showUserHand.innerHTML = userIcons[1].outerHTML
+    } else {
+        showUserHand.innerHTML = userIcons[2].outerHTML
+    }
+}
+// Show Cpu Hand
+const showHandCpu = (playerHand) => {
+    if (playerHand === "rock") {
+        showCpuHand.innerHTML = cpuIcons[0].outerHTML
+    } else if (playerHand === "paper") {
+        showCpuHand.innerHTML = cpuIcons[1].outerHTML
+    } else {
+        showCpuHand.innerHTML = cpuIcons[2].outerHTML
+    }
+}
+
+const deciderHeader = document.querySelector(".modal-body h1")
+
+const declareWinner = (decider) => {
+    modal.style.display = "block";
+    gameContainer.style.display = "none";
+
+    deciderHeader.textContent = `YOU ${decider}!`
+}
+
+
+
 
 
 

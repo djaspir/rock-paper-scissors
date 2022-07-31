@@ -79,7 +79,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    margin: 30% auto;
+    margin: 15% auto;
     padding: 0;
     width: 528px;
     height: 30%;
@@ -204,4 +204,14 @@ body {
 
 .hidden {
     display: none;
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal-body h1 {
+    margin-bottom: 20px;
 }
